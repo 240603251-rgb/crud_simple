@@ -8,9 +8,13 @@
     <h1>Agregar Usuario</h1>
     <form action="guardar.php" method="post">
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+        <!-- Se agregó el pattern para evitar números y se añadió un title para el mensaje de error -->
+        <input type="text" id="nombre" name="nombre" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+" title="Solo se permiten letras y espacios" required><br><br>
+        
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <!-- Se cambió a type="text" y se agregó el pattern que permite la ñ antes del @ -->
+        <input type="text" id="email" name="email" pattern="[a-zA-Z0-9._%+\-ñÑ]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Ingresa un correo electrónico válido (se permite la ñ)" required><br><br>
+        
         <input type="submit" value="Guardar">
     </form>
     <a href="index.php">Volver a la lista</a>
